@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// 스킬 상태
+public enum AbilityState
+{
+    ready, active, cooldown
+}
+
 public class AbilityFSM : MonoBehaviour
 {
     [Header ("시전 할 스킬")] public AbilityBase ability;
     [Header ("스킬 사용 키")] public KeyCode activeKey;
-    private float activeTime, cooldownTime; // 스킬 유지시간, 스킬 쿨시간
-    private enum AbilityState { ready, active, cooldown }; // 스킬 상태 : 준비, 유지, 쿨다운
-    private AbilityState curAbilityState = AbilityState.ready; // 현재 스킬 상태
+    [HideInInspector] public float activeTime, cooldownTime; // 스킬 유지시간, 스킬 쿨시간
+    [HideInInspector] public AbilityState curAbilityState = AbilityState.ready; // 현재 스킬 상태
 
     // 스킬 FSM : 준비 => 유지 => 쿨다운
     private void Update()

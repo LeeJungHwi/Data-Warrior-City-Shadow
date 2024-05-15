@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 38903044}
   - component: {fileID: 38903043}
   - component: {fileID: 38903042}
+  - component: {fileID: 38903045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -245,8 +246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d4c8ee367c2344a9db9034b758a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: dc70ab893b5015a4ea346cee134b8b0a, type: 2}
+  ability: {fileID: 11400000, guid: 354fe9787e6d9564ba92cbd6c5bdcf91, type: 2}
   activeKey: 101
+  activeTime: 0
+  cooldownTime: 0
+  curAbilityState: 0
 --- !u!114 &38903043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d4c8ee367c2344a9db9034b758a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 7c8f49d2ecae0094e82fa185d44d49cd, type: 2}
+  ability: {fileID: 11400000, guid: a11169c7ccd5e1d4583b2e1c724e0b0c, type: 2}
   activeKey: 119
+  activeTime: 0
+  cooldownTime: 0
+  curAbilityState: 0
 --- !u!114 &38903044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,8 +280,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587d4c8ee367c2344a9db9034b758a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: f4b986396b40c5347b1ad4bc4db34b4d, type: 2}
+  ability: {fileID: 11400000, guid: d6d08f73b4fbc3e4bbfec0330e95724e, type: 2}
   activeKey: 113
+  activeTime: 0
+  cooldownTime: 0
+  curAbilityState: 0
+--- !u!114 &38903045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38903037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71bac1a6d7c047499369f9690bc6519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CCList:
+  - {fileID: 11400000, guid: 31ffdf78642547a4184092c136f4462b, type: 2}
+  - {fileID: 11400000, guid: 9282de3d3d5b1b442a479fe1cdb3b21b, type: 2}
+  - {fileID: 11400000, guid: 905327b73efb76a4783102912a5b56e5, type: 2}
+  DSList:
+  - {fileID: 11400000, guid: f4b986396b40c5347b1ad4bc4db34b4d, type: 2}
+  - {fileID: 11400000, guid: 7c8f49d2ecae0094e82fa185d44d49cd, type: 2}
+  - {fileID: 11400000, guid: dc70ab893b5015a4ea346cee134b8b0a, type: 2}
+  NMList:
+  - {fileID: 11400000, guid: 9160d5ac2e8922b45b9551a2cb8a6344, type: 2}
+  - {fileID: 11400000, guid: a0bd606feb2a02b4a9e9675d86661637, type: 2}
+  - {fileID: 11400000, guid: 5dcaa61a4f312424e8197f727b1a816e, type: 2}
+  PCList:
+  - {fileID: 11400000, guid: d6d08f73b4fbc3e4bbfec0330e95724e, type: 2}
+  - {fileID: 11400000, guid: a11169c7ccd5e1d4583b2e1c724e0b0c, type: 2}
+  - {fileID: 11400000, guid: 354fe9787e6d9564ba92cbd6c5bdcf91, type: 2}
+  RCList:
+  - {fileID: 11400000, guid: 4fc7e4d9444a0144c87efd6bda885aa2, type: 2}
+  - {fileID: 11400000, guid: d49a67d7469258f40877e08cd19fcd88, type: 2}
+  - {fileID: 11400000, guid: ea08c9e6828c23846819b5740d57d24a, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
