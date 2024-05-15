@@ -21,8 +21,8 @@ public class AbilityFSM : MonoBehaviour
                 if(Input.GetKeyDown(activeKey))
                 {
                     // 스킬 시전
-                    if(ability.GetComponent<SyncAbilityBase>() != null) ability.GetComponent<SyncAbilityBase>().Cast();
-                    else ability.GetComponent<AsyncAbilityBase>().Cast();
+                    if(ability is SyncAbilityBase syncAbilityBase) syncAbilityBase.Cast();
+                    else if(ability is AsyncAbilityBase asyncAbilityBase) StartCoroutine(asyncAbilityBase.Cast());
 
                     // 스킬 유지 상태
                     curAbilityState = AbilityState.active;
