@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class NMQcollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    // 스킬 충돌처리
+    private void OnParticleCollision(GameObject other)
     {
         
     }
