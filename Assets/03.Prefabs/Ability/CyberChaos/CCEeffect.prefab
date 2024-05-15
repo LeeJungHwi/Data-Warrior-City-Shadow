@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1604487808337520272}
   - component: {fileID: 1604487808337520303}
   m_Layer: 0
-  m_Name: Effect_43_DarkDimensionAttack
+  m_Name: CCEeffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

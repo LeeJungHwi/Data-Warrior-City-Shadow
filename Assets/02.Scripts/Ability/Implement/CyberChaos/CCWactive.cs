@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CCWactive : MonoBehaviour
+[CreateAssetMenu(menuName = "Ability/CyberChaos/W")]
+public class CCWactive : SyncAbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header ("스킬 이펙트 프리팹")] public GameObject abilityPrefab;
+    private GameObject instantAbility; // 생성된 스킬
+
+    // 스킬 시전
+    public override void Cast()
     {
-        
+        // 스킬 생성
+        instantAbility = Instantiate(abilityPrefab, GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f), abilityPrefab.transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    // 스킬 종료
+    public override void CastEnd()
     {
-        
+        // 스킬 삭제
+        Destroy(instantAbility);
     }
 }

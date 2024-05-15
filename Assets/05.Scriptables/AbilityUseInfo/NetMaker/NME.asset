@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a06ee3dfa1586468150f25a9c778e2, type: 3}
+  m_Name: NME
+  m_EditorClassIdentifier: 
+  activeTime: 3
+  cooldownTime: 8
+  abilityPrefab: {fileID: 4393265069171482744, guid: 7d324257d1f423f47bc732f5ef1b7d13,
+    type: 3}

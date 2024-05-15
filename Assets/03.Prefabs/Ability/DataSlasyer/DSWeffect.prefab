@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1371570483842104329}
   m_Layer: 0
-  m_Name: Effect_22_AirbirdAttack
+  m_Name: DSWeffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

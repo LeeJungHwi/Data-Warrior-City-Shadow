@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a22a71c3ac24f6429b5b39b8e899ba5, type: 3}
+  m_Name: RCQ
+  m_EditorClassIdentifier: 
+  activeTime: 3
+  cooldownTime: 8
+  abilityPrefab: {fileID: 3976647566952146198, guid: 1154e4ee316a8794f8d30ddb5169d983,
+    type: 3}
