@@ -11,15 +11,18 @@ public class RCWactive : SyncAbilityBase
     public override void Cast()
     {
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetObj(AbilityType.RCW);
+        instantAbility = AbilityPool.instance.GetSkill(AbilityType.RCW);
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f);
         instantAbility.transform.rotation = GameObject.Find("Player").transform.rotation;
+
+        // 사운드 풀링
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCW);
     }
 
     // 스킬 종료
     public override void CastEnd()
     {
         // 스킬 반환
-        AbilityPool.instance.ReturnObj(instantAbility, AbilityType.RCW);
+        AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.RCW);
     }
 }

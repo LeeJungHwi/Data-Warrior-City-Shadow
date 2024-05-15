@@ -11,15 +11,18 @@ public class DSWactive : SyncAbilityBase
     public override void Cast()
     {
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetObj(AbilityType.DSW);
+        instantAbility = AbilityPool.instance.GetSkill(AbilityType.DSW);
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f);
         instantAbility.transform.rotation = GameObject.Find("Player").transform.rotation;
+
+        // 사운드 풀링
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.DSW);
     }
 
     // 스킬 종료
     public override void CastEnd()
     {
         // 스킬 반환
-        AbilityPool.instance.ReturnObj(instantAbility, AbilityType.DSW);
+        AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.DSW);
     }
 }
