@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c3cda667063c645945075aadd8abf9, type: 3}
   m_Name: RCE
   m_EditorClassIdentifier: 
-  activeTime: 10
-  cooldownTime: 12
-  abilityPrefab: {fileID: 458491794854500806, guid: 18ca98e31fa03ee488df5dcb5db13ff6,
-    type: 3}
+  activeTime: 5
+  cooldownTime: 10

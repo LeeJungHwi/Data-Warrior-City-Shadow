@@ -43,6 +43,10 @@ public class MultipleObjectsMake : _ObjectsMakeBase
                     if(isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;
                     m_obj.transform.localScale = m_scale;
+
+                    // 여기 스킬 하위 파티클 생성되는 부분
+                    // CCE 사운드 여기에서 재생
+                    if(m_makeObjs[i].name == "Effect_43_DarkPortal") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE);
                 }
 
                 m_Time2 = Time.time;

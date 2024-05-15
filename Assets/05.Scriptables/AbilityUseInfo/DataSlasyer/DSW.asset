@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: DSW
   m_EditorClassIdentifier: 
   activeTime: 3
-  cooldownTime: 8
-  abilityPrefab: {fileID: 1371570483842104438, guid: 9002730c93339264e97513f3dda03139,
-    type: 3}
+  cooldownTime: 6

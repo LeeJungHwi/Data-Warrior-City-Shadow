@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99a351352609a54593fb0efe22b0aed, type: 3}
   m_Name: DSQ
   m_EditorClassIdentifier: 
-  activeTime: 1
-  cooldownTime: 4
-  abilityPrefab: {fileID: 8440170721088204535, guid: 26e8937d9ba3cbf46b594149089fc088,
-    type: 3}
+  activeTime: 3
+  cooldownTime: 6

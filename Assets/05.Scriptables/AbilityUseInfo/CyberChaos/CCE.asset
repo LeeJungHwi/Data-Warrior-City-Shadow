@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: CCE
   m_EditorClassIdentifier: 
   activeTime: 3
-  cooldownTime: 8
-  abilityPrefab: {fileID: 1604487808337520302, guid: ab41d91f175f20242b66a3c60c877b98,
-    type: 3}
+  cooldownTime: 6

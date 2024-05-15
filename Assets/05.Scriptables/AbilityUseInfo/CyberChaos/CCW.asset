@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: CCW
   m_EditorClassIdentifier: 
   activeTime: 3
-  cooldownTime: 8
-  abilityPrefab: {fileID: 5365820854864931162, guid: 43ef6f53aa2d9b94f9b8ffb106a9620c,
-    type: 3}
+  cooldownTime: 6

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: NME
   m_EditorClassIdentifier: 
   activeTime: 3
-  cooldownTime: 8
-  abilityPrefab: {fileID: 4393265069171482744, guid: 7d324257d1f423f47bc732f5ef1b7d13,
-    type: 3}
+  cooldownTime: 6

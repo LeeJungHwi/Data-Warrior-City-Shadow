@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9faddfff002fe4bb9f0df63ada3a96, type: 3}
   m_Name: CCQ
   m_EditorClassIdentifier: 
-  activeTime: 1
-  cooldownTime: 4
-  abilityPrefab: {fileID: 6935568911942545081, guid: 96aacb3c58028424aa3e5f4e5c55f12e,
-    type: 3}
+  activeTime: 3
+  cooldownTime: 6

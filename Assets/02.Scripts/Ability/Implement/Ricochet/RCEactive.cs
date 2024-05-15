@@ -12,8 +12,7 @@ public class RCEactive : SyncAbilityBase
     {
         // 스킬 풀링
         instantAbility = AbilityPool.instance.GetSkill(AbilityType.RCE);
-        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f);
-        instantAbility.transform.rotation = GameObject.Find("Player").transform.rotation;
+        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 25f);
 
         // 사운드 풀링
         AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCE);
