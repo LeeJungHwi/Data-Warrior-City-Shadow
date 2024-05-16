@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a06ee3dfa1586468150f25a9c778e2, type: 3}
   m_Name: NME
   m_EditorClassIdentifier: 
-  activeTime: 3
-  cooldownTime: 6
+  activeTime: 5
+  cooldownTime: 8

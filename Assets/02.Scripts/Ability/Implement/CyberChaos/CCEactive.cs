@@ -12,10 +12,10 @@ public class CCEactive : SyncAbilityBase
     {
         // 스킬 풀링
         instantAbility = AbilityPool.instance.GetSkill(AbilityType.CCE);
-        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 35f);
+        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, -0.1f, 35f);
 
         // 사운드 풀링
-        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE);
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE1);
     }
 
     // 스킬 종료

@@ -18,7 +18,8 @@ public class VariousTranslateMove : MonoBehaviour {
     }
 
 	void Update () {
-        m_changedFactor = VariousEffectsScene.m_gaph_scenesizefactor;
+        // 여기 스킬 무빙 속도
+        m_changedFactor = gameObject.name.Substring(0, 12) == "DSWcollision" ? 5f : VariousEffectsScene.m_gaph_scenesizefactor;
 
         if (m_fowardMove)
             transform.Translate(transform.forward * m_power * m_changedFactor);

@@ -45,8 +45,9 @@ public class MultipleObjectsMake : _ObjectsMakeBase
                     m_obj.transform.localScale = m_scale;
 
                     // 여기 스킬 하위 파티클 생성되는 부분
-                    // CCE 사운드 여기에서 재생
-                    if(m_makeObjs[i].name == "Effect_43_DarkPortal") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE);
+                    // CCE, DSE 사운드 여기에서 재생
+                    if(m_makeObjs[i].name == "CCEcollision") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE2);
+                    else if(m_makeObjs[i].name.Substring(0, 12) == "DSEcollision") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.DSE2);
                 }
 
                 m_Time2 = Time.time;

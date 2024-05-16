@@ -15,7 +15,7 @@ public class NMEactive : SyncAbilityBase
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 30f);
 
         // 사운드 풀링
-        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NME);
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NME1);
     }
 
     // 스킬 종료

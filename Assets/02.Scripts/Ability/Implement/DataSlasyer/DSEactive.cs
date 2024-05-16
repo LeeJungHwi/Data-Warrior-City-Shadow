@@ -15,7 +15,7 @@ public class DSEactive : SyncAbilityBase
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f);
 
         // 사운드 풀링
-        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.DSE);
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.DSE1);
     }
 
     // 스킬 종료

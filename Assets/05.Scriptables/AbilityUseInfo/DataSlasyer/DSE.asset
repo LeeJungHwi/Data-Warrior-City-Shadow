@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6babe7a8e1bff458e89e615008305a, type: 3}
   m_Name: DSE
   m_EditorClassIdentifier: 
-  activeTime: 3
-  cooldownTime: 6
+  activeTime: 5
+  cooldownTime: 8

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8e5279556517a4996e1235ba7d16bb, type: 3}
   m_Name: PCQ
   m_EditorClassIdentifier: 
-  activeTime: 3
-  cooldownTime: 8
+  activeTime: 2
+  cooldownTime: 4
