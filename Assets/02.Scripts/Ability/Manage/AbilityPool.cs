@@ -192,7 +192,7 @@ public class AbilityPool : MonoBehaviour
     }
 
     // 풀에서 사운드 꺼냄
-    public GameObject GetSound(AbilitySoundType type)
+    public void GetSound(AbilitySoundType type)
     {
         // 키가 존재하고 큐에 오브젝트가 있으면 꺼냄
         if(queSoundMap.ContainsKey(type) && queSoundMap[type].Count > 0)
@@ -202,13 +202,7 @@ public class AbilityPool : MonoBehaviour
 
             // 오브젝트 활성화
             obj.SetActive(true);
-
-            // 오브젝트 반환
-            return obj;
         }
-
-        // 사용 가능한 오브젝트가 없으면
-        return null;
     }
 
     // 풀에 스킬 반환

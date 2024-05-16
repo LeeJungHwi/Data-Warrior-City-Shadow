@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 스킬 상태
 public enum AbilityState
@@ -15,6 +15,8 @@ public class AbilityFSM : MonoBehaviour
     [Header ("스킬 사용 키")] public KeyCode activeKey;
     [HideInInspector] public float activeTime, cooldownTime; // 스킬 유지시간, 스킬 쿨시간
     [HideInInspector] public AbilityState curAbilityState = AbilityState.ready; // 현재 스킬 상태
+    [Header ("스킬 쿨타임 이미지")] public Image cooldownImage;
+    [HideInInspector] public float duration = 0f; // 스킬 쿨타임 계산용
 
     // 스킬 FSM : 준비 => 유지 => 쿨다운
     private void Update()
@@ -35,6 +37,7 @@ public class AbilityFSM : MonoBehaviour
                     // 스킬 시간 초기화
                     activeTime = ability.activeTime;
                     cooldownTime = ability.cooldownTime;
+                    duration = 0f;
                 }
                 break;
 
@@ -44,6 +47,10 @@ public class AbilityFSM : MonoBehaviour
                 {
                     // 스킬 유지시간 감소
                     activeTime -= Time.deltaTime;
+
+                    // 스킬 쿨타임 이미지 표시
+                    duration += Time.deltaTime;
+                    cooldownImage.fillAmount = duration / (ability.activeTime + ability.cooldownTime);
                 }
                 else
                 {
@@ -61,6 +68,10 @@ public class AbilityFSM : MonoBehaviour
                 {
                     // 스킬 쿨다운시간 감소
                     cooldownTime -= Time.deltaTime;
+
+                    // 스킬 쿨타임 이미지 표시
+                    duration += Time.deltaTime;
+                    cooldownImage.fillAmount = duration / (ability.activeTime + ability.cooldownTime);
                 }
                 else
                 {

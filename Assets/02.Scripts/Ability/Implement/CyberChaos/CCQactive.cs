@@ -11,6 +11,8 @@ public class CCQactive : AsyncAbilityBase
     public override IEnumerator Cast()
     {
         // 사운드 풀링
+        // CCQ 시전 후 1초 안에 무기 바꾸면 널에러 이슈
+        // 아직 instantAbility 풀링 하지 않았는데 무기 바꿔서 CastEnd 호출됨
         AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCQ);
         yield return new WaitForSeconds(1f);
 

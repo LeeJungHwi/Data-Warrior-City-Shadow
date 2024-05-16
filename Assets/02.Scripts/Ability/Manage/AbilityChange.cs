@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 // 무기 타입
 public enum WeaponType
@@ -18,21 +17,32 @@ public class AbilityChange : MonoBehaviour
         set
         {
             // 무기 타입이 변경 될 때
-            // 무가 타입에 해당하는 스킬로 교체
+            // 1.선택된 무기 변경
+            // 2.스킬 스크립터블 변경
+            // 3.스킬 이미지 변경
+            // 4.무기 교체 쿨타임 초기화
+            abilityImageChange.SelectedWeaponAbilityImage(value);
+            selectedFocus.SelectedWeaponFocus(weaponT, value);
             weaponT = value;
             SkillChange();
+            WeaponChangeCoolInit();
         }
     }
     private List<AbilityFSM> fsmList = new List<AbilityFSM>(); // 플레이어가 가지고있는 3개 FSM
     [SerializeField] private List<List<AbilityBase> > abilityList = new List<List<AbilityBase> >(); // 모든 스킬 저장
-    [SerializeField] [Header ("스킬 스크립터블 저장")] private List<AbilityBase> CCList = new List<AbilityBase>(); // CC 스킬
+    [SerializeField] [Header ("스킬 스크립터블 저장")] [Space (10f)] private List<AbilityBase> CCList = new List<AbilityBase>(); // CC 스킬
     [SerializeField] private List<AbilityBase> DSList = new List<AbilityBase>(); // DS 스킬
     [SerializeField] private List<AbilityBase> NMList = new List<AbilityBase>(); // NM 스킬
     [SerializeField] private List<AbilityBase> PCList = new List<AbilityBase>(); // PC 스킬
     [SerializeField] private List<AbilityBase> RCList = new List<AbilityBase>(); // RC 스킬
-    private void Awake() { AbilityListInit(); } 
+    [SerializeField] [Header ("선택된 무기 표시")] private SelectedFocus selectedFocus;
+    [SerializeField] [Header ("스킬 이미지 교체")] private AbilityImageChange abilityImageChange;
+    private bool isChange = true; // 무기 교체가 가능한지 체크
+    private float duration = 0f; // 무기 교체 가능시간 계산용
+    [SerializeField] [Header ("무기 교체 쿨타임 시간")] private float changeTime;
 
     // FSM 3개, 모든 스킬 저장
+    private void Awake() { AbilityListInit(); }
     private void AbilityListInit()
     {
         fsmList.AddRange(GetComponents<AbilityFSM>());
@@ -46,6 +56,15 @@ public class AbilityChange : MonoBehaviour
     // 임시로 12345 무기 교체
     private void Update()
     {
+        // 무기 교체 쿨타임
+        if(!isChange)
+        {
+            duration += Time.deltaTime;
+            if(duration > changeTime) isChange = true;
+            return;
+        }
+
+        // 무기 교체
         if(Input.GetKeyDown(KeyCode.Alpha1)) WeaponT = WeaponType.CC;
         else if(Input.GetKeyDown(KeyCode.Alpha2)) WeaponT = WeaponType.DS;
         else if(Input.GetKeyDown(KeyCode.Alpha3)) WeaponT = WeaponType.NM;
@@ -53,7 +72,7 @@ public class AbilityChange : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Alpha5)) WeaponT = WeaponType.RC;
     }
 
-    // 스킬 교체
+    // 스킬 스크립터블 교체
     private void SkillChange()
     {
         for(int i = 0; i < fsmList.Count; i++)
@@ -61,7 +80,7 @@ public class AbilityChange : MonoBehaviour
             // 이전 무기 스킬 초기화
             PreSkillInit(i);
 
-            // 스킬 교체
+            // 스킬 스크립터블 교체
             fsmList[i].ability = abilityList[(int)weaponT][i];
         }
     }
@@ -73,5 +92,14 @@ public class AbilityChange : MonoBehaviour
         fsmList[idx].activeTime = 0f;
         fsmList[idx].cooldownTime = 0f;
         fsmList[idx].curAbilityState = AbilityState.ready;
+        fsmList[idx].duration = 0f;
+        fsmList[idx].cooldownImage.fillAmount = 1f;
+    }
+
+    // 무기 교체 쿨타임 초기화
+    private void WeaponChangeCoolInit()
+    {
+        isChange = false;
+        duration = 0f;
     }
 }
