@@ -7,8 +7,8 @@ using TMPro;
 public class ToolTip : MonoBehaviour
 {
     [Header ("이름 텍스트")] [SerializeField] private TextMeshProUGUI nameText;
-    [Header ("이름 텍스트")] [SerializeField] private Image iconImage;
-    [Header ("이름 텍스트")] [SerializeField] private TextMeshProUGUI DescText;
+    [Header ("아이콘 이미지")] [SerializeField] private Image iconImage;
+    [Header ("설명 텍스트")] [SerializeField] private TextMeshProUGUI DescText;
 
     // 툴팁 패널 마우스 위치로
     private void Update() { transform.position = Input.mousePosition; } 
