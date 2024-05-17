@@ -22,12 +22,14 @@ public class AbilityChange : MonoBehaviour
             // 3.스킬 이미지 변경
             // 4.무기 교체 쿨타임 초기화
             // 5.스킬 툴팁 정보 교체
+            // 6.무기 교체 사운드
             abilityImageChange.SelectedWeaponAbilityImage(value);
             selectedFocus.SelectedWeaponFocus(weaponT, value);
             weaponT = value;
             SkillChange();
             WeaponChangeCoolInit();
             abilityInfoChange.SetAbilityToolTipInfo(value);
+            weaponChangeSound.SetActive(true);
         }
     }
     private List<AbilityFSM> fsmList = new List<AbilityFSM>(); // 플레이어가 가지고있는 3개 FSM
@@ -43,6 +45,7 @@ public class AbilityChange : MonoBehaviour
     private bool isChange = true; // 무기 교체가 가능한지 체크
     private float duration = 0f; // 무기 교체 가능시간 계산용
     [SerializeField] [Header ("무기 교체 쿨타임 시간")] private float changeTime;
+    [SerializeField] [Header ("무기 교체 사운드")] private GameObject weaponChangeSound;
 
     // FSM 3개, 모든 스킬 저장
     private void Awake() { AbilityListInit(); }

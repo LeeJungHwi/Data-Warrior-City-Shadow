@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ToolTipActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    // 툴팁 패널
-    [SerializeField] private ToolTip toolTip;
+    [SerializeField] [Header ("툴팁 패널")] private ToolTip toolTip;
+    [SerializeField] [Header ("툴팁 사운드")] private GameObject toolTipSound;
 
     // 툴팁 패널 활성화
     public void OnPointerEnter(PointerEventData eventData)
@@ -19,6 +19,7 @@ public class ToolTipActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(itemInfo == null) return; // 아이템 정보가 없으면 리턴
         toolTip.gameObject.SetActive(true); // 툴팁 패널 활성화
         toolTip.SetToolTipInfo(itemInfo.itemName, itemInfo.itemIcon, itemInfo.itemDesc); // 아이템 정보 갱신
+        toolTipSound.SetActive(true); // 툴팁 사운드
     }
 
     // 툴팁 패널 비활성화
