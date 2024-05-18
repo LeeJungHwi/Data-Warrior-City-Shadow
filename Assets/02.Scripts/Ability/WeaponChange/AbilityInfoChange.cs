@@ -29,13 +29,7 @@ public class AbilityInfoChange : MonoBehaviour
 
     // (각 무기 타입, 각 무기 스킬 정보) 맵핑
     private void Awake() { AbilityInfoMap(); }
-    private void AbilityInfoMap()
-    {
-        for(int i = 0; i < abilityInfoList.Count; i++)
-        {
-            abilityInfoMap[(WeaponType)i] = abilityInfoList[i];
-        }
-    }
+    private void AbilityInfoMap() { for(int i = 0; i < abilityInfoList.Count; i++) abilityInfoMap[(WeaponType)i] = abilityInfoList[i]; }
 
     // 각 무기에 따라 툴팁 정보 갱신
     public void SetAbilityToolTipInfo(WeaponType curType)

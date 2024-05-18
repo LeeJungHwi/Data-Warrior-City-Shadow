@@ -28,13 +28,7 @@ public class AbilityImageChange : MonoBehaviour
 
     // (각 무기 타입, 각 무기 스킬 이미지) 맵핑
     private void Awake() { AbilityImageMap(); }
-    private void AbilityImageMap()
-    {
-        for(int i = 0; i < abilityImageList.Count; i++)
-        {
-            abilityImageMap[(WeaponType)i] = abilityImageList[i];
-        }
-    }
+    private void AbilityImageMap() { for(int i = 0; i < abilityImageList.Count; i++) abilityImageMap[(WeaponType)i] = abilityImageList[i]; }
 
     // 선택된 무기 스킬 이미지로 교체
     public void SelectedWeaponAbilityImage(WeaponType curType)

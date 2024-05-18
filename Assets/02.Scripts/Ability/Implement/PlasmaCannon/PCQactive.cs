@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/PlasmaCannon/Q")]
 public class PCQactive : SyncAbilityBase
 {
-    private GameObject instantAbility; // 생성된 스킬
-
     // 스킬 시전
     public override void Cast()
     {
@@ -19,9 +17,5 @@ public class PCQactive : SyncAbilityBase
     }
 
     // 스킬 종료
-    public override void CastEnd()
-    {
-        // 스킬 반환
-        AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.PCQ);
-    }
+    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.PCQ); }
 }

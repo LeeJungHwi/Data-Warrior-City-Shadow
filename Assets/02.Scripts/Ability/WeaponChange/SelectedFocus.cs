@@ -26,13 +26,7 @@ public class SelectedFocus : MonoBehaviour
 
     // (각 무기 타입, 각 프레임 이미지) 맵핑
     private void Awake() { SelectedFrameMap(); }
-    private void SelectedFrameMap()
-    {
-        for(int i = 0; i < selectedFrameImageList.Count; i++)
-        {
-            selectedFrameImageMap[(WeaponType)i] = selectedFrameImageList[i];
-        }
-    }
+    private void SelectedFrameMap() { for(int i = 0; i < selectedFrameImageList.Count; i++) selectedFrameImageMap[(WeaponType)i] = selectedFrameImageList[i]; }
 
     // 선택된 무기 표시
     public void SelectedWeaponFocus(WeaponType preType, WeaponType curType)

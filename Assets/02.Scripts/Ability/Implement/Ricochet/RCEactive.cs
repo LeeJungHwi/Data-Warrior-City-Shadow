@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/Ricochet/E")]
 public class RCEactive : AsyncAbilityBase
 {
-    private GameObject instantAbility; // 생성된 스킬
-
     // 스킬 시전
     public override IEnumerator Cast()
     {
@@ -16,19 +14,15 @@ public class RCEactive : AsyncAbilityBase
 
         // 사운드 풀링
         AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCE1);
-        yield return new WaitForSeconds(1f);
+        yield return oneSecond;
 
         for(int i = 0; i < 20; i++)
         {
             AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCE2);
-            yield return new WaitForSeconds(0.2f);
+            yield return twoTenthsSecond;
         }
     }
 
     // 스킬 종료
-    public override void CastEnd()
-    {
-        // 스킬 반환
-        AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.RCE);
-    }
+    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.RCE); }
 }

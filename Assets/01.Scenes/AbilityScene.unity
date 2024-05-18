@@ -3024,53 +3024,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolSet: {fileID: 1723930451}
+  AbilityList: []
   CCList:
-  - {fileID: 6935568911942545081, guid: 96aacb3c58028424aa3e5f4e5c55f12e, type: 3}
-  - {fileID: 5365820854864931162, guid: 43ef6f53aa2d9b94f9b8ffb106a9620c, type: 3}
-  - {fileID: 1604487808337520302, guid: ab41d91f175f20242b66a3c60c877b98, type: 3}
+    gameObjectList:
+    - {fileID: 6935568911942545081, guid: 96aacb3c58028424aa3e5f4e5c55f12e, type: 3}
+    - {fileID: 5365820854864931162, guid: 43ef6f53aa2d9b94f9b8ffb106a9620c, type: 3}
+    - {fileID: 1604487808337520302, guid: ab41d91f175f20242b66a3c60c877b98, type: 3}
   DSList:
-  - {fileID: 8440170721088204535, guid: 26e8937d9ba3cbf46b594149089fc088, type: 3}
-  - {fileID: 1371570483842104438, guid: 9002730c93339264e97513f3dda03139, type: 3}
-  - {fileID: 2134000535842535392, guid: 8967753c297c3124d98b0c7df5216ac2, type: 3}
+    gameObjectList:
+    - {fileID: 8440170721088204535, guid: 26e8937d9ba3cbf46b594149089fc088, type: 3}
+    - {fileID: 1371570483842104438, guid: 9002730c93339264e97513f3dda03139, type: 3}
+    - {fileID: 2134000535842535392, guid: 8967753c297c3124d98b0c7df5216ac2, type: 3}
   NMList:
-  - {fileID: 7916095762725810944, guid: 1a0c3309985528645b50dffd642237b3, type: 3}
-  - {fileID: 6069143791621258020, guid: 521dce82787287b4a88fc3c600f9ef53, type: 3}
-  - {fileID: 4393265069171482744, guid: 7d324257d1f423f47bc732f5ef1b7d13, type: 3}
+    gameObjectList:
+    - {fileID: 7916095762725810944, guid: 1a0c3309985528645b50dffd642237b3, type: 3}
+    - {fileID: 6069143791621258020, guid: 521dce82787287b4a88fc3c600f9ef53, type: 3}
+    - {fileID: 4393265069171482744, guid: 7d324257d1f423f47bc732f5ef1b7d13, type: 3}
   PCList:
-  - {fileID: 6104107114863222821, guid: f8b6a6f913bc4c748af1eb91ba8d1a23, type: 3}
-  - {fileID: 6252130925861768005, guid: 26d18c76357323442aebb3e37fa40c13, type: 3}
-  - {fileID: 8326152476264324054, guid: 7a9ace5267b097f4284e16436c329a85, type: 3}
+    gameObjectList:
+    - {fileID: 6104107114863222821, guid: f8b6a6f913bc4c748af1eb91ba8d1a23, type: 3}
+    - {fileID: 6252130925861768005, guid: 26d18c76357323442aebb3e37fa40c13, type: 3}
+    - {fileID: 8326152476264324054, guid: 7a9ace5267b097f4284e16436c329a85, type: 3}
   RCList:
-  - {fileID: 4392200634563080770, guid: b274f4ded4efa8c488e85b4c82b331b0, type: 3}
-  - {fileID: 6597932298756112774, guid: 8141d18bc44ff6c40a68c70358ea3121, type: 3}
-  - {fileID: 458491794854500806, guid: 18ca98e31fa03ee488df5dcb5db13ff6, type: 3}
+    gameObjectList:
+    - {fileID: 4392200634563080770, guid: b274f4ded4efa8c488e85b4c82b331b0, type: 3}
+    - {fileID: 6597932298756112774, guid: 8141d18bc44ff6c40a68c70358ea3121, type: 3}
+    - {fileID: 458491794854500806, guid: 18ca98e31fa03ee488df5dcb5db13ff6, type: 3}
+  AbilitySoundList: []
   CCSoundList:
-  - {fileID: 2637014397445888211, guid: ef396eb30f2e7ed46b15a58ec430efda, type: 3}
-  - {fileID: 2637014397445888211, guid: ea2b9cdc4cc721045966d9561191dbd9, type: 3}
-  - {fileID: 2637014397445888211, guid: 0f0065520fedbb94f9424275fc95d13a, type: 3}
-  - {fileID: 2637014397445888211, guid: 52b490dea46d2d642abfb8c4e620ed12, type: 3}
+    gameObjectList:
+    - {fileID: 2637014397445888211, guid: ef396eb30f2e7ed46b15a58ec430efda, type: 3}
+    - {fileID: 2637014397445888211, guid: ea2b9cdc4cc721045966d9561191dbd9, type: 3}
+    - {fileID: 2637014397445888211, guid: 0f0065520fedbb94f9424275fc95d13a, type: 3}
+    - {fileID: 2637014397445888211, guid: 52b490dea46d2d642abfb8c4e620ed12, type: 3}
   DSSoundList:
-  - {fileID: 2637014397445888211, guid: 88d9e73801f39c64cad8d88c39353d08, type: 3}
-  - {fileID: 2637014397445888211, guid: f30396c3d2cfcb84cadeb48205b04436, type: 3}
-  - {fileID: 2637014397445888211, guid: 505daf5c24f21eb4fb2abdbfc4cad198, type: 3}
-  - {fileID: 2637014397445888211, guid: 3d96587bfd109a44c9d2508c5853f29b, type: 3}
+    gameObjectList:
+    - {fileID: 2637014397445888211, guid: 88d9e73801f39c64cad8d88c39353d08, type: 3}
+    - {fileID: 2637014397445888211, guid: f30396c3d2cfcb84cadeb48205b04436, type: 3}
+    - {fileID: 2637014397445888211, guid: 505daf5c24f21eb4fb2abdbfc4cad198, type: 3}
+    - {fileID: 2637014397445888211, guid: 3d96587bfd109a44c9d2508c5853f29b, type: 3}
   NMSoundList:
-  - {fileID: 2637014397445888211, guid: d9bbcf092c534cf4ea1518a512a3ca9c, type: 3}
-  - {fileID: 2637014397445888211, guid: b849215150da2d842a3296adea454116, type: 3}
-  - {fileID: 2637014397445888211, guid: 8f413a21eb5429f4d928bf92f5c8dcf3, type: 3}
-  - {fileID: 2637014397445888211, guid: 2a60da8bf65dfd9438d035b0260a6b30, type: 3}
-  - {fileID: 2637014397445888211, guid: 99fcd880e5bf5f041a8fc126b8f99579, type: 3}
+    gameObjectList:
+    - {fileID: 2637014397445888211, guid: d9bbcf092c534cf4ea1518a512a3ca9c, type: 3}
+    - {fileID: 2637014397445888211, guid: b849215150da2d842a3296adea454116, type: 3}
+    - {fileID: 2637014397445888211, guid: 8f413a21eb5429f4d928bf92f5c8dcf3, type: 3}
+    - {fileID: 2637014397445888211, guid: 2a60da8bf65dfd9438d035b0260a6b30, type: 3}
+    - {fileID: 2637014397445888211, guid: 99fcd880e5bf5f041a8fc126b8f99579, type: 3}
   PCSoundList:
-  - {fileID: 2637014397445888211, guid: c8d1dde79be788e4a93f7eee2742c1d0, type: 3}
-  - {fileID: 2637014397445888211, guid: 2ded2a2871c183d4f98034f654b642e0, type: 3}
-  - {fileID: 2637014397445888211, guid: e3bb8145337c0b8409cb5b842f2e9a86, type: 3}
-  - {fileID: 2637014397445888211, guid: 1026f65f03a62914e86cd9ca3dbf1be4, type: 3}
+    gameObjectList:
+    - {fileID: 2637014397445888211, guid: c8d1dde79be788e4a93f7eee2742c1d0, type: 3}
+    - {fileID: 2637014397445888211, guid: 2ded2a2871c183d4f98034f654b642e0, type: 3}
+    - {fileID: 2637014397445888211, guid: e3bb8145337c0b8409cb5b842f2e9a86, type: 3}
+    - {fileID: 2637014397445888211, guid: 1026f65f03a62914e86cd9ca3dbf1be4, type: 3}
   RCSoundList:
-  - {fileID: 2637014397445888211, guid: 6d6aeafa9cafdbc429de010f4556bff3, type: 3}
-  - {fileID: 2637014397445888211, guid: 2f4bd5d94d9fed64caf652ed2fbadbcd, type: 3}
-  - {fileID: 2637014397445888211, guid: 0e3a63e544711654dbdd11e1fcdf48f8, type: 3}
-  - {fileID: 2637014397445888211, guid: 7dc4affac3cc9fe4e9bc4db3c8e06199, type: 3}
-  - {fileID: 2637014397445888211, guid: 4132b7e675b02704b8db1abc59e49c37, type: 3}
+    gameObjectList:
+    - {fileID: 2637014397445888211, guid: 6d6aeafa9cafdbc429de010f4556bff3, type: 3}
+    - {fileID: 2637014397445888211, guid: 2f4bd5d94d9fed64caf652ed2fbadbcd, type: 3}
+    - {fileID: 2637014397445888211, guid: 0e3a63e544711654dbdd11e1fcdf48f8, type: 3}
+    - {fileID: 2637014397445888211, guid: 7dc4affac3cc9fe4e9bc4db3c8e06199, type: 3}
+    - {fileID: 2637014397445888211, guid: 4132b7e675b02704b8db1abc59e49c37, type: 3}
 --- !u!4 &683959957
 Transform:
   m_ObjectHideFlags: 0

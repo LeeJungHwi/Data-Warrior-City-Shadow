@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability/PlasmaCannon/W")]
 public class PCWactive : AsyncAbilityBase
 {
-    private GameObject instantAbility; // 생성된 스킬
-
     // 스킬 시전
     public override IEnumerator Cast()
     {
@@ -18,14 +16,10 @@ public class PCWactive : AsyncAbilityBase
         for(int i = 0; i < 14; i++)
         {
             AbilitySound.instance.SkillSfxPlay(AbilitySoundType.PCW);
-            yield return new WaitForSeconds(0.2f);
+            yield return twoTenthsSecond;
         }
     }
 
     // 스킬 종료
-    public override void CastEnd()
-    {
-        // 스킬 반환
-        AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.PCW);
-    }
+    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.PCW); }
 }

@@ -8,8 +8,5 @@ public class UiSoundDeActive : MonoBehaviour
     // 클립 재생이 끝나면 비활성화
     private AudioSource audioSource;
     private void Awake() { audioSource = GetComponent<AudioSource>(); }
-    private void Update()
-    {
-        if(!audioSource.isPlaying) gameObject.SetActive(false);
-    }
+    private void Update() { if(!audioSource.isPlaying) gameObject.SetActive(false); }
 }

@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 무기 타입
-public enum WeaponType
-{
-    CC, DS, NM, PC, RC
-}
+public enum WeaponType { CC, DS, NM, PC, RC }
 
 public class AbilityChange : MonoBehaviour
 {
