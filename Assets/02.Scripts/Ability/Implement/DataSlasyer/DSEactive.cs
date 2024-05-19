@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/DataSlasyer/E")]
 public class DSEactive : SyncAbilityBase

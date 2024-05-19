@@ -1,39 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-
-// 스킬 타입
-public enum AbilityType
-{
-    CCQ, CCW, CCE,
-    DSQ, DSW, DSE,
-    NMQ, NMW, NME,
-    PCQ, PCW, PCE,
-    RCQ, RCW, RCE
-}
-
-// 사운드 타입
-public enum AbilitySoundType
-{
-    CCQ, CCW, CCE1, CCE2,
-    DSQ, DSW, DSE1, DSE2,
-    NMQ1, NMQ2, NMW, NME1, NME2,
-    PCQ, PCW, PCE1, PCE2,
-    RCQ1, RCQ2, RCW, RCE1, RCE2
-}
-
-// 게임 오브젝트 형 리스트를 가지는 클래스
-[Serializable]
-public class ListGameObject
-{
-    public List<GameObject> gameObjectList;
-
-    // 생성자
-    public ListGameObject() {}
-    public ListGameObject(List<GameObject> gameObjList) { gameObjectList = gameObjList; }
-}
-
+using static AbilityEnum;
+using static AbilityUserClass;
 
 public class AbilityPool : MonoBehaviour
 {

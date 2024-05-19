@@ -1,29 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-// 선택된 무기 스킬 이미지
-[System.Serializable]
-public class AbilityImage
-{
-    public Sprite Q, W, E; // Q W E
-
-    // 생성자
-    public AbilityImage(Sprite q, Sprite w, Sprite e)
-    {
-        Q = q;
-        W = w;
-        E = e;
-    }
-}
+using static AbilityEnum;
+using static AbilityUserClass;
 
 public class AbilityImageChange : MonoBehaviour
 {
     [SerializeField] [Header ("각 무기 스킬 이미지")] private List<AbilityImage> abilityImageList = new List<AbilityImage>();
-    [SerializeField] [Header ("변경 할 Q 스킬 칸")] private List<Image> qImage = new List<Image>();
-    [SerializeField] [Header ("변경 할 W 스킬 칸")] private List<Image> wImage = new List<Image>();
-    [SerializeField] [Header ("변경 할 E 스킬 칸")] private List<Image> eImage = new List<Image>();
+    [Header ("변경 할 Q 스킬 칸")] public List<Image> qImage = new List<Image>();
+    [Header ("변경 할 W 스킬 칸")] public List<Image> wImage = new List<Image>();
+    [Header ("변경 할 E 스킬 칸")] public List<Image> eImage = new List<Image>();
     private Dictionary<WeaponType, AbilityImage> abilityImageMap = new Dictionary<WeaponType, AbilityImage>(); // (각 무기 타입, 각 무기 스킬 이미지) 맵핑
 
     // (각 무기 타입, 각 무기 스킬 이미지) 맵핑

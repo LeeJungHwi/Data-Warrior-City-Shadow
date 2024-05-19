@@ -1,25 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-
-// 선택된 무기에 따른 스킬 정보
-[System.Serializable]
-public class AbilityInfo
-{
-    // Q W E 정보
-    [Header ("스킬 이름")] public string[] abilityName;
-    [Header ("스킬 아이콘")] public Sprite[] abilityIcon;
-    [Header ("스킬 설명")] public string[] abilityDesc;
-
-    // 생성자
-    public AbilityInfo(string[] name, Sprite[] icon, string[] desc)
-    {
-        abilityName = name;
-        abilityIcon = icon;
-        abilityDesc = desc;
-    }
-}
+using static AbilityEnum;
+using static AbilityUserClass;
 
 public class AbilityInfoChange : MonoBehaviour
 {

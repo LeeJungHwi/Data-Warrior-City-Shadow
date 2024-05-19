@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-// 스킬 상태
-public enum AbilityState { ready, active, cooldown }
+using static AbilityEnum;
 
 public class AbilityFSM : MonoBehaviour
 {
@@ -22,7 +18,7 @@ public class AbilityFSM : MonoBehaviour
         {   
             // 준비
             case AbilityState.ready :
-                if(Input.GetKeyDown(activeKey)) Ready();
+                if(Input.GetKeyDown(activeKey) && ability != null) Ready();
                 break;
 
             // 유지

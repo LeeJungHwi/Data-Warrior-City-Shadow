@@ -1,21 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-// 선택된 무기 프레임 이미지
-[System.Serializable]
-public class SelectedFrameImage
-{
-    public Image weaponFrame, changeFrame; // 무기프레임, 무기교체프레임
-
-    // 생성자
-    public SelectedFrameImage(Image wFrame, Image cFrame)
-    {
-        weaponFrame = wFrame;
-        changeFrame = cFrame;
-    }
-}
+using static AbilityEnum;
+using static AbilityUserClass;
 
 public class SelectedFocus : MonoBehaviour
 {

@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/Ricochet/W")]
 public class RCWactive : AsyncAbilityBase

@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// 무기 타입
-public enum WeaponType { CC, DS, NM, PC, RC }
+using static AbilityEnum;
 
 public class AbilityChange : MonoBehaviour
 {
@@ -20,6 +17,7 @@ public class AbilityChange : MonoBehaviour
             // 4.무기 교체 쿨타임 초기화
             // 5.스킬 툴팁 정보 교체
             // 6.무기 교체 사운드
+            // 7.무기 처음 해제인지 체크
             abilityImageChange.SelectedWeaponAbilityImage(value);
             selectedFocus.SelectedWeaponFocus(weaponT, value);
             weaponT = value;
@@ -37,8 +35,9 @@ public class AbilityChange : MonoBehaviour
     [SerializeField] private List<AbilityBase> PCList = new List<AbilityBase>(); // PC 스킬
     [SerializeField] private List<AbilityBase> RCList = new List<AbilityBase>(); // RC 스킬
     [SerializeField] [Header ("선택된 무기 표시")] private SelectedFocus selectedFocus;
-    [SerializeField] [Header ("스킬 이미지 교체")] private AbilityImageChange abilityImageChange;
+    [Header ("스킬 이미지 교체")] public AbilityImageChange abilityImageChange;
     [SerializeField] [Header ("스킬 툴팁 정보 교체")] private AbilityInfoChange abilityInfoChange;
+    [SerializeField] [Header ("무기 해제")] private WeaponUnlock weaponUnlock;
     private bool isChange = true; // 무기 교체가 가능한지 체크
     private float duration = 0f; // 무기 교체 가능시간 계산용
     [SerializeField] [Header ("무기 교체 쿨타임 시간")] private float changeTime;
@@ -57,7 +56,10 @@ public class AbilityChange : MonoBehaviour
     }
 
     // 임시로 12345 무기 교체
-    private void Update()
+    private void Update() { WeaponChange(); }
+
+    // 무기 교체
+    private void WeaponChange()
     {
         // 무기 교체 쿨타임
         if(!isChange)
@@ -68,12 +70,15 @@ public class AbilityChange : MonoBehaviour
         }
 
         // 무기 교체
-        if(Input.GetKeyDown(KeyCode.Alpha1)) WeaponT = WeaponType.CC;
-        else if(Input.GetKeyDown(KeyCode.Alpha2)) WeaponT = WeaponType.DS;
-        else if(Input.GetKeyDown(KeyCode.Alpha3)) WeaponT = WeaponType.NM;
-        else if(Input.GetKeyDown(KeyCode.Alpha4)) WeaponT = WeaponType.PC;
-        else if(Input.GetKeyDown(KeyCode.Alpha5)) WeaponT = WeaponType.RC;
+        if(Input.GetKeyDown(KeyCode.Alpha1) && IsWeaponChange(WeaponType.CC)) WeaponT = WeaponType.CC;
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && IsWeaponChange(WeaponType.DS)) WeaponT = WeaponType.DS;
+        else if(Input.GetKeyDown(KeyCode.Alpha3) && IsWeaponChange(WeaponType.NM)) WeaponT = WeaponType.NM;
+        else if(Input.GetKeyDown(KeyCode.Alpha4) && IsWeaponChange(WeaponType.PC)) WeaponT = WeaponType.PC;
+        else if(Input.GetKeyDown(KeyCode.Alpha5) && IsWeaponChange(WeaponType.RC)) WeaponT = WeaponType.RC;
     }
+
+    // 무기 교체 가능한지 체크 => 해제된 무기만, 같은 무기로 교체 ㄴ
+    private bool IsWeaponChange(WeaponType type) { return weaponUnlock.weaponUnlockImageMap[type].isUnlock && WeaponT != type; }
 
     // 스킬 스크립터블 교체
     private void SkillChange()

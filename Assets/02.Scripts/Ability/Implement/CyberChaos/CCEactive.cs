@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/CyberChaos/E")]
 public class CCEactive : SyncAbilityBase

@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/NetMaker/Q")]
 public class NMQactive : AsyncAbilityBase
@@ -17,11 +17,11 @@ public class NMQactive : AsyncAbilityBase
 
         for(int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(1f);
+            yield return oneSecond;
             AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NMQ1);
         }
         
-        yield return new WaitForSeconds(0.5f);
+        yield return halfSecond;
         AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NMQ2);
     }
 

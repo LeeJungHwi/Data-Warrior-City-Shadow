@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/Ricochet/Q")]
 public class RCQactive : AsyncAbilityBase
@@ -14,12 +14,12 @@ public class RCQactive : AsyncAbilityBase
 
         // 사운드 풀링
         AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCQ1);
-        yield return new WaitForSeconds(0.4f);
+        yield return fourTenthsSecond;
 
         for(int i = 0; i < 10; i++)
         {
             AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCQ2);
-            yield return new WaitForSeconds(0.2f);
+            yield return twoTenthsSecond;
         }
     }
 
