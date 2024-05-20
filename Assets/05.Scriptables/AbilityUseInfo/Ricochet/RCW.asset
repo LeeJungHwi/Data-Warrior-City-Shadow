@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9758e18f415e09c49b18564e35a6da27, type: 3}
+  m_Name: RCW
+  m_EditorClassIdentifier: 
+  activeTime: 3
+  cooldownTime: 8
+  abilityPrefab: {fileID: 1415642025082432259, guid: f90b89d8183a06d499988865576474b5,
+    type: 3}
