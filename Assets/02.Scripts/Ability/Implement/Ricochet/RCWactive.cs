@@ -9,7 +9,7 @@ public class RCWactive : AsyncAbilityBase
     public override IEnumerator Cast()
     {
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetSkill(AbilityType.RCW);
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.RCW);
         instantAbility.transform.position = GameObject.Find("Player").transform.position;
 
         // 사운드 풀링
@@ -21,5 +21,5 @@ public class RCWactive : AsyncAbilityBase
     }
 
     // 스킬 종료
-    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.RCW); }
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.RCW); }
 }

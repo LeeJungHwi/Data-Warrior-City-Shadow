@@ -8,7 +8,7 @@ public class DSWactive : SyncAbilityBase
     public override void Cast()
     {
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetSkill(AbilityType.DSW);
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.DSW);
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 15f);
 
         // 사운드 풀링
@@ -16,5 +16,5 @@ public class DSWactive : SyncAbilityBase
     }
 
     // 스킬 종료
-    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.DSW); }
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.DSW); }
 }

@@ -9,7 +9,7 @@ public class NMWactive : AsyncAbilityBase
     public override IEnumerator Cast()
     {
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetSkill(AbilityType.NMW);
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.NMW);
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f);
 
         // 사운드 풀링
@@ -23,5 +23,5 @@ public class NMWactive : AsyncAbilityBase
     }
 
     // 스킬 종료
-    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.NMW); }
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.NMW); }
 }

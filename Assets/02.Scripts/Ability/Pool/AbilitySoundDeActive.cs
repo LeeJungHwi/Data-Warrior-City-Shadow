@@ -9,5 +9,5 @@ public class AbilitySoundDeActive : MonoBehaviour
     private void Awake() { audioSource = GetComponent<AudioSource>(); }
 
     // 사운드 재생이 끝나면 풀에 자동 반환
-    private void Update() { if(!audioSource.isPlaying) AbilityPool.instance.ReturnSound(gameObject, type); }
+    private void Update() { if(!audioSource.isPlaying) AbilityPool.instance.ReturnPool(AbilityPool.instance.queSoundMap, gameObject, type); }
 }

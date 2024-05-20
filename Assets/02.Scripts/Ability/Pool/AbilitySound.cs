@@ -7,5 +7,5 @@ public class AbilitySound : MonoBehaviour
     private void Awake() { instance = this; }
 
     // 스킬 사운드 재생
-    public void SkillSfxPlay(AbilitySoundType type) { AbilityPool.instance.GetSound(type); }
+    public void SkillSfxPlay(AbilitySoundType type) { AbilityPool.instance.GetPool(AbilityPool.instance.queSoundMap, type); }
 }  

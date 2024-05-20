@@ -15,10 +15,10 @@ public class CCQactive : AsyncAbilityBase
         yield return oneSecond;
 
         // 스킬 풀링
-        instantAbility = AbilityPool.instance.GetSkill(AbilityType.CCQ);
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.CCQ);
         instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 25f);
     }
 
     // 스킬 종료
-    public override void CastEnd() { AbilityPool.instance.ReturnSkill(instantAbility, AbilityType.CCQ); }
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.CCQ); }
 }

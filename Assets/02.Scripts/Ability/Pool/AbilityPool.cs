@@ -7,24 +7,22 @@ using static AbilityUserClass;
 public class AbilityPool : MonoBehaviour
 {
     public static AbilityPool instance;
+    private void Awake() { instance = this; }
     public GameObject poolSet; // 오브젝트 부모
     [Header ("스킬 맵핑")] [SerializeField] private List<ListGameObject> AbilityList = new List<ListGameObject>(); // 각 스킬 리스트 모두 저장
     [SerializeField] private ListGameObject CCList = new ListGameObject(), DSList = new ListGameObject(), NMList = new ListGameObject(), PCList = new ListGameObject(), RCList = new ListGameObject(); // 각 CC, DS, NM, PC, RC 스킬 리스트
     private Dictionary<AbilityType, GameObject> prefMap = new Dictionary<AbilityType, GameObject>(); // (타입, 프리팹) 맵핑
-    private Dictionary<AbilityType, Queue<GameObject> > queMap = new Dictionary<AbilityType, Queue<GameObject> >(); // (타입, 큐) 맵핑
+    public Dictionary<AbilityType, Queue<GameObject> > queMap = new Dictionary<AbilityType, Queue<GameObject> >(); // (타입, 큐) 맵핑
     [Header ("사운드 맵핑")] [SerializeField] private List<ListGameObject> AbilitySoundList = new List<ListGameObject>(); // 각 스킬 사운드 리스트 모두 저장
     [SerializeField] private ListGameObject CCSoundList = new ListGameObject(), DSSoundList = new ListGameObject(), NMSoundList = new ListGameObject(), PCSoundList = new ListGameObject(), RCSoundList = new ListGameObject(); // 각 스킬 사운드 리스트
     private Dictionary<AbilitySoundType, GameObject> prefSoundMap = new Dictionary<AbilitySoundType, GameObject>(); // (타입, 프리팹) 맵핑
-    private Dictionary<AbilitySoundType, Queue<GameObject> > queSoundMap = new Dictionary<AbilitySoundType, Queue<GameObject> >(); // (타입, 큐) 맵핑
+    public Dictionary<AbilitySoundType, Queue<GameObject> > queSoundMap = new Dictionary<AbilitySoundType, Queue<GameObject> >(); // (타입, 큐) 맵핑
 
-    private void Awake()
+    private void Start()
     {
-        // 정적
-        instance = this;
-
-        // 모든 스킬 저장
-        // 모든 사운드 저장
-        AbilityListInit();
+        // 리스트 초기화
+        ListInit(AbilityList, CCList, DSList, NMList, PCList, RCList);
+        ListInit(AbilitySoundList, CCSoundList, DSSoundList, NMSoundList, PCSoundList, RCSoundList);
 
         // (타입, 프리팹) 맵핑
         PrefMap(AbilityList, prefMap); 
@@ -35,27 +33,10 @@ public class AbilityPool : MonoBehaviour
         QueMap(queSoundMap, prefSoundMap);
     }
 
-    // 모든 스킬 저장
-    // 모든 사운드 저장
-    private void AbilityListInit()
-    {
-        // 모든 스킬 저장
-        AbilityList.Add(CCList);
-        AbilityList.Add(DSList);
-        AbilityList.Add(NMList);
-        AbilityList.Add(PCList);
-        AbilityList.Add(RCList);
-
-        // 모든 사운드 저장
-        AbilitySoundList.Add(CCSoundList);
-        AbilitySoundList.Add(DSSoundList);
-        AbilitySoundList.Add(NMSoundList);
-        AbilitySoundList.Add(PCSoundList);
-        AbilitySoundList.Add(RCSoundList);
-    }
+    // 리스트 초기화
+    private void ListInit(List<ListGameObject> allPrefList, params ListGameObject[] lists) { allPrefList.AddRange(lists); }
 
     // (타입, 프리팹) 맵핑
-    // T : Enum으로 제한
     private void PrefMap<T>(List<ListGameObject> pList, Dictionary<T, GameObject> pMap) where T : Enum
     {
         // 타입 초기화
@@ -105,14 +86,14 @@ public class AbilityPool : MonoBehaviour
         }
     }
 
-    // 풀에서 스킬 꺼냄
-    public GameObject GetSkill(AbilityType type)
+    // 꺼냄
+    public GameObject GetPool<T>(Dictionary<T, Queue<GameObject> > qMap, T type) where T : Enum
     {
         // 키가 존재하고 큐에 오브젝트가 있으면 꺼냄
-        if(queMap.ContainsKey(type) && queMap[type].Count > 0)
+        if(qMap.ContainsKey(type) && qMap[type].Count > 0)
         {
             // 오브젝트 꺼내서
-            GameObject obj = queMap[type].Dequeue();
+            GameObject obj = qMap[type].Dequeue();
 
             // 오브젝트 활성화
             obj.SetActive(true);
@@ -125,37 +106,13 @@ public class AbilityPool : MonoBehaviour
         return null;
     }
 
-    // 풀에서 사운드 꺼냄
-    public void GetSound(AbilitySoundType type)
-    {
-        // 키가 존재하고 큐에 오브젝트가 있으면 꺼냄
-        if(queSoundMap.ContainsKey(type) && queSoundMap[type].Count > 0)
-        {
-            // 오브젝트 꺼내서
-            GameObject obj = queSoundMap[type].Dequeue();
-
-            // 오브젝트 활성화
-            obj.SetActive(true);
-        }
-    }
-
-    // 풀에 스킬 반환
-    public void ReturnSkill(GameObject obj, AbilityType type)
+    // 반환
+    public void ReturnPool<T>(Dictionary<T, Queue<GameObject> > qMap, GameObject obj, T type) where T : Enum
     {
         // 오브젝트 비활성화
         obj.SetActive(false);
 
         // 해당 타입의 풀로 반환
-        queMap[type].Enqueue(obj);
-    }
-
-    // 풀에 사운드 반환
-    public void ReturnSound(GameObject obj, AbilitySoundType type)
-    {
-        // 오브젝트 비활성화
-        obj.SetActive(false);
-
-        // 해당 타입의 풀로 반환
-        queSoundMap[type].Enqueue(obj);
+        qMap[type].Enqueue(obj);
     }
 }
