@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
-public class NMEactive : MonoBehaviour
+[CreateAssetMenu(menuName = "Ability/NetMaker/E")]
+public class NMEactive : SyncAbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+    // 스킬 시전
+    public override void Cast()
     {
-        
+        // 스킬 풀링
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.NME);
+        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 30f);
+
+        // 사운드 풀링
+        AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NME1);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // 스킬 종료
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.NME); }
 }

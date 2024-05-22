@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 public class MultipleObjectsMake : _ObjectsMakeBase
 {
@@ -43,6 +44,11 @@ public class MultipleObjectsMake : _ObjectsMakeBase
                     if(isObjectAttachToParent)
                         m_obj.transform.parent = this.transform;
                     m_obj.transform.localScale = m_scale;
+
+                    // 여기 스킬 하위 파티클 생성되는 부분
+                    // CCE, DSE 사운드 여기에서 재생
+                    if(m_makeObjs[i].name == "CCEcollision") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.CCE2);
+                    else if(m_makeObjs[i].name.Substring(0, 12) == "DSEcollision") AbilitySound.instance.SkillSfxPlay(AbilitySoundType.DSE2);
                 }
 
                 m_Time2 = Time.time;

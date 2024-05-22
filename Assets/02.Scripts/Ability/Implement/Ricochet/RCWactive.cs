@@ -1,18 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
-public class RCWactive : MonoBehaviour
+[CreateAssetMenu(menuName = "Ability/Ricochet/W")]
+public class RCWactive : AsyncAbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+    // 스킬 시전
+    public override IEnumerator Cast()
     {
-        
+        // 스킬 풀링
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.RCW);
+        instantAbility.transform.position = GameObject.Find("Player").transform.position;
+
+        // 사운드 풀링
+        for(int i = 0; i < 10; i++)
+        {
+            AbilitySound.instance.SkillSfxPlay(AbilitySoundType.RCW);
+            yield return twoTenthsSecond; 
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // 스킬 종료
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.RCW); }
 }

@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 public class NMEcollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // 스킬 충돌처리
+    private void OnParticleCollision(GameObject other)
     {
-        
-    }
+        if(other.TryGetComponent(out Enemy enemy))
+        {
+            // 충돌처리
+            Debug.Log("Enemy was hit!");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            // 충돌 사운드
+            AbilitySound.instance.SkillSfxPlay(AbilitySoundType.NME2);
+        }
     }
 }

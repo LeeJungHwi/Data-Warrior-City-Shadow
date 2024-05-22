@@ -1,24 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AbilityEnum;
 
 [CreateAssetMenu(menuName = "Ability/PlasmaCannon/W")]
-public class PCWactive : SyncAbilityBase
+public class PCWactive : AsyncAbilityBase
 {
-    [Header ("스킬 이펙트 프리팹")] public GameObject abilityPrefab;
-    private GameObject instantAbility; // 생성된 스킬
-
     // 스킬 시전
-    public override void Cast()
+    public override IEnumerator Cast()
     {
-        // 스킬 생성
-        instantAbility = Instantiate(abilityPrefab, GameObject.Find("Player").transform.position + new Vector3(0, 0, 5f), abilityPrefab.transform.rotation);
+        // 스킬 풀링
+        instantAbility = AbilityPool.instance.GetPool(AbilityPool.instance.queMap, AbilityType.PCW);
+        instantAbility.transform.position = GameObject.Find("Player").transform.position + new Vector3(0, 0, 25f);
+
+        // 사운드 풀링
+        for(int i = 0; i < 14; i++)
+        {
+            AbilitySound.instance.SkillSfxPlay(AbilitySoundType.PCW);
+            yield return twoTenthsSecond;
+        }
     }
 
     // 스킬 종료
-    public override void CastEnd()
-    {
-        // 스킬 삭제
-        Destroy(instantAbility);
-    }
+    public override void CastEnd() { AbilityPool.instance.ReturnPool(AbilityPool.instance.queMap, instantAbility, AbilityType.PCW); }
 }

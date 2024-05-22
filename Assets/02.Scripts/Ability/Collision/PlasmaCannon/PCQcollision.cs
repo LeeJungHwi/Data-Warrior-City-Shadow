@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PCQcollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // 스킬 충돌처리
+    private void OnParticleCollision(GameObject other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.TryGetComponent(out Enemy enemy))
+        {
+            // 충돌처리
+            Debug.Log("Enemy was hit!");
+        }
     }
 }
