@@ -10,6 +10,7 @@ public class AbilityFSM : MonoBehaviour
     [HideInInspector] public AbilityState curAbilityState = AbilityState.ready; // 현재 스킬 상태
     [Header ("스킬 쿨타임 이미지")] public Image cooldownImage;
     [HideInInspector] public float duration = 0f; // 스킬 쿨타임 계산용
+    [Header ("스킬 자물쇠 이미지")] [SerializeField] private GameObject abilityLockImage; // 스킬 자물쇠 이미지
 
     // 스킬 FSM : 준비 => 유지 => 쿨다운
     private void Update()
@@ -18,7 +19,11 @@ public class AbilityFSM : MonoBehaviour
         {   
             // 준비
             case AbilityState.ready :
-                if(Input.GetKeyDown(activeKey) && ability != null) Ready();
+                // 스킬 키 누르고
+                // 스킬 스크립터블이 있고
+                // 자물쇠가 활성화 상태가 아니면
+                // 스킬 시전
+                if(Input.GetKeyDown(activeKey) && ability != null && !abilityLockImage.activeSelf) Ready();
                 break;
 
             // 유지

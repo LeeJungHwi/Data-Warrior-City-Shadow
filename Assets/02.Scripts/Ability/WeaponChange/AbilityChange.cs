@@ -18,12 +18,14 @@ public class AbilityChange : MonoBehaviour
             // 5.스킬 툴팁 정보 교체
             // 6.무기 교체 사운드
             // 7.무기 처음 해제인지 체크
+            // 8.스킬 해제 상태 체크
             abilityImageChange.SelectedWeaponAbilityImage(value);
             selectedFocus.SelectedWeaponFocus(weaponT, value);
             weaponT = value;
             SkillChange();
             WeaponChangeCoolInit();
             abilityInfoChange.SetAbilityToolTipInfo(value);
+            abilityUnlock.AbilityUnlockStateCheck(value);
             weaponChangeSound.SetActive(true);
         }
     }
@@ -37,7 +39,8 @@ public class AbilityChange : MonoBehaviour
     [SerializeField] [Header ("선택된 무기 표시")] private SelectedFocus selectedFocus;
     [Header ("스킬 이미지 교체")] public AbilityImageChange abilityImageChange;
     [SerializeField] [Header ("스킬 툴팁 정보 교체")] private AbilityInfoChange abilityInfoChange;
-    [SerializeField] [Header ("무기 해제")] private WeaponUnlock weaponUnlock;
+    [Header ("무기 해제")] public WeaponUnlock weaponUnlock;
+    [Header ("스킬 해제")] public AbilityUnlock abilityUnlock;
     private bool isChange = true; // 무기 교체가 가능한지 체크
     private float duration = 0f; // 무기 교체 가능시간 계산용
     [SerializeField] [Header ("무기 교체 쿨타임 시간")] private float changeTime;
