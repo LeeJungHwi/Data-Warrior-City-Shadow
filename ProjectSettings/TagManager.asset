@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - FieldItem
+  - Store
+=======
   - Enemy
   - CinemachineTarget
+>>>>>>> e9364a80d398784af83602e63439d7204ba055be
   layers:
   - Default
   - TransparentFX

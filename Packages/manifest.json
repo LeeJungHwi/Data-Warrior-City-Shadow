@@ -1,6 +1,10 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "com.unity.2d.sprite": "1.0.0",
+=======
     "com.unity.cinemachine": "2.9.7",
+>>>>>>> e9364a80d398784af83602e63439d7204ba055be
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.ide.rider": "3.0.28",
     "com.unity.ide.visualstudio": "2.0.22",
