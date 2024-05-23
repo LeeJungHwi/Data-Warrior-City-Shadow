@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTime: 3
   cooldownTime: 8
-  abilityPrefab: {fileID: 8326152476264324054, guid: 7a9ace5267b097f4284e16436c329a85,
-    type: 3}
+  gaugeCost: 100

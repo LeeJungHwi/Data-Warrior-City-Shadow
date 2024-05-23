@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTime: 2
   cooldownTime: 4
+  gaugeCost: 25
