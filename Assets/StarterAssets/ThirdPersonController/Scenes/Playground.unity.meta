@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02.Scripts/Essential.meta
+guid: 8001c745aa16cc1438e8bf3a597f98d5
+folderAsset: yes
+========
 guid: e9017d5f96b9f09489b4b37e1d6eb914
+>>>>>>>> e9364a80d398784af83602e63439d7204ba055be:Assets/StarterAssets/ThirdPersonController/Scenes/Playground.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

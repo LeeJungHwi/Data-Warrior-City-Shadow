@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 using static AbilityEnum;
 using static AbilityUserClass;
@@ -6,7 +8,7 @@ using static AbilityUserClass;
 public class WeaponUnlock : MonoBehaviour
 {
     [Header ("무기 교체")] [SerializeField] private AbilityChange abilityChange;
-    private bool isFirstUnlock; // 처음 무기 획득인지 체크
+    public bool isFirstUnlock; // 처음 무기 획득인지 체크
     [SerializeField] [Header ("각 무기 해제 여부 및 자물쇠 이미지")] private List<WeaponUnlockImage> weaponUnlockImageList = new List<WeaponUnlockImage>();
     public Dictionary<WeaponType, WeaponUnlockImage> weaponUnlockImageMap = new Dictionary<WeaponType, WeaponUnlockImage>(); // (각 무기 타입, 각 무기 해제 여부 및 자물쇠 이미지) 맵핑
 
@@ -43,7 +45,7 @@ public class WeaponUnlock : MonoBehaviour
         weaponUnlockImageMap[type].unlockImage.gameObject.SetActive(false);
     }
 
-    // 처음 무기 획득 시 Q W E 알파 255
+    // 처음 무기 획득 시
     public void FirstWeaponUnlock()
     {
         if(isFirstUnlock) return; // 처음 획득이 아니면 리턴

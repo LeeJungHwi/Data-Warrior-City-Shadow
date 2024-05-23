@@ -10,6 +10,8 @@ public class AbilityFSM : MonoBehaviour
     [HideInInspector] public AbilityState curAbilityState = AbilityState.ready; // 현재 스킬 상태
     [Header ("스킬 쿨타임 이미지")] public Image cooldownImage;
     [HideInInspector] public float duration = 0f; // 스킬 쿨타임 계산용
+    [Header ("스킬 자물쇠 이미지")] [SerializeField] private GameObject abilityLockImage; // 스킬 자물쇠 이미지
+    [Header ("스킬 게이지")] [SerializeField] private AbilityGauge abilityGauge;
 
     // 스킬 FSM : 준비 => 유지 => 쿨다운
     private void Update()
@@ -18,7 +20,7 @@ public class AbilityFSM : MonoBehaviour
         {   
             // 준비
             case AbilityState.ready :
-                if(Input.GetKeyDown(activeKey) && ability != null) Ready();
+                if(IsCastAility()) Ready();
                 break;
 
             // 유지
@@ -33,12 +35,22 @@ public class AbilityFSM : MonoBehaviour
         }
     }
 
+    // 스킬 시전 조건 체크
+    // 1. 스킬 키 입력
+    // 2. 스킬 스크립터블 할당
+    // 3. 자물쇠 비활성화
+    // 4. 게이지 체크
+    private bool IsCastAility() { return Input.GetKeyDown(activeKey) && ability != null && !abilityLockImage.activeSelf && abilityGauge.IsEnoughGauge(ability.gaugeCost); }
+
     // 준비
     private void Ready()
     {
         // 스킬 시전
         if(ability is SyncAbilityBase syncAbilityBase) syncAbilityBase.Cast();
         else if(ability is AsyncAbilityBase asyncAbilityBase) StartCoroutine(asyncAbilityBase.Cast());
+
+        // 스킬 게이지 소모
+        abilityGauge.CurGauge -= ability.gaugeCost;
 
         // 스킬 유지 상태
         curAbilityState = AbilityState.active;

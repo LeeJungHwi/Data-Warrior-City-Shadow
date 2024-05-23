@@ -77,4 +77,14 @@ public static class AbilityUserClass
             isUnlock = isUnlo;
         }
     }
+
+    // 해제된 스킬 체크
+    [Serializable]
+    public class IsAbilityUnlock
+    {
+        public List<bool> isUnlockAbility; // 0 : W, 1 : E
+
+        // 생성자
+        public IsAbilityUnlock(List<bool> unlock) { isUnlockAbility = unlock; }
+    }
 }
