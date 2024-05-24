@@ -11,6 +11,7 @@ public class AbilityUnlock : MonoBehaviour
     private Dictionary<WeaponType, IsAbilityUnlock> abilityUnlockMap = new Dictionary<WeaponType, IsAbilityUnlock>(); // (각 무기 타입, 각 무기 W E 해제 상태) 맵핑
     [Header ("스킬 자물쇠 이미지")] public List<GameObject> abilityLockImage = new List<GameObject>();
     [Header ("스킬 해제 버튼")] public List<GameObject> abilityUnlockBtn = new List<GameObject>();
+    [SerializeField] [Header ("스킬 해제 사운드")] private GameObject abilityUnlockSound;
 
     // (각 무기 타입, 각 무기 W E 해제 상태) 맵핑
     private void Awake() { AbilityUnlockMap(); }
@@ -29,6 +30,9 @@ public class AbilityUnlock : MonoBehaviour
         // 자물쇠, 스킬 해제 버튼 비활성화
         abilityLockImage[abilityIdx].SetActive(false);
         abilityUnlockBtn[abilityIdx].SetActive(false);
+
+        // 사운드
+        abilityUnlockSound.SetActive(true);
     }
 
     // 무기 교체 시 스킬 해제 상태 체크하고

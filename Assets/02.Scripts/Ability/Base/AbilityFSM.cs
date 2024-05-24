@@ -20,7 +20,7 @@ public class AbilityFSM : MonoBehaviour
         {   
             // 준비
             case AbilityState.ready :
-                if(IsCastAility()) Ready();
+                if(IsCastAbility()) Ready();
                 break;
 
             // 유지
@@ -40,7 +40,7 @@ public class AbilityFSM : MonoBehaviour
     // 2. 스킬 스크립터블 할당
     // 3. 자물쇠 비활성화
     // 4. 게이지 체크
-    private bool IsCastAility() { return Input.GetKeyDown(activeKey) && ability != null && !abilityLockImage.activeSelf && abilityGauge.IsEnoughGauge(ability.gaugeCost); }
+    private bool IsCastAbility() { return Input.GetKeyDown(activeKey) && ability != null && !abilityLockImage.activeSelf && abilityGauge.IsEnoughGauge(ability.gaugeCost); }
 
     // 준비
     private void Ready()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AbilityGauge : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class AbilityGauge : MonoBehaviour
         }
     }
     [Header ("게이지 슬라이더")] [SerializeField] private Slider gaugeSlider;
+    [Header ("게이지 텍스트")] [SerializeField] private TextMeshProUGUI gaugeText;
 
     // 게이지 획득
     private void Update() { GetGauge(); }
@@ -31,5 +33,9 @@ public class AbilityGauge : MonoBehaviour
     public bool IsEnoughGauge(float gaugeCost) { return curGauge >= gaugeCost; }
 
     // 스킬 게이지 UI 업데이트
-    public void UpdateGaugeUI() { gaugeSlider.value = curGauge / maxGauge; }
+    public void UpdateGaugeUI()
+    {
+        gaugeSlider.value = curGauge / maxGauge;
+        gaugeText.text = curGauge.ToString();
+    }
 }
