@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static AbilityEnum;
@@ -12,6 +14,7 @@ public class AbilityFSM : MonoBehaviour
     [HideInInspector] public float duration = 0f; // 스킬 쿨타임 계산용
     [Header ("스킬 자물쇠 이미지")] [SerializeField] private GameObject abilityLockImage; // 스킬 자물쇠 이미지
     [Header ("스킬 게이지")] [SerializeField] private AbilityGauge abilityGauge;
+    [Header ("스킬 시전 가능 이펙트")] [SerializeField] private GameObject castable;
 
     // 스킬 FSM : 준비 => 유지 => 쿨다운
     private void Update()
@@ -33,6 +36,9 @@ public class AbilityFSM : MonoBehaviour
                 Cooldown();
                 break;
         }
+
+        // 시전 가능 스킬 체크
+        CastableAbility();
     }
 
     // 스킬 시전 조건 체크
@@ -105,5 +111,12 @@ public class AbilityFSM : MonoBehaviour
     {
         duration += Time.deltaTime;
         cooldownImage.fillAmount = duration / (ability.activeTime + ability.cooldownTime);
+    }
+
+    // 시전 가능 스킬 체크
+    private void CastableAbility()
+    {
+        if(ability == null) return;
+        castable.SetActive(!castable.activeSelf ? (abilityGauge.IsEnoughGauge(ability.gaugeCost) && !abilityLockImage.activeSelf ? true : false) : (!abilityGauge.IsEnoughGauge(ability.gaugeCost) || abilityLockImage.activeSelf ? false : true));
     }
 }
