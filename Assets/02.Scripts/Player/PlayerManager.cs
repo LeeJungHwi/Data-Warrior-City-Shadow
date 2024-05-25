@@ -45,7 +45,7 @@ public class PlayerManager : MonoBehaviour
             }
             else //원하는 타깃이 아닌 경우 카메라가 바라보는 방향으로 위치 설정
             {
-                targetPosition = camTrans.position + camTrans.forward;
+                targetPosition = camTrans.position + camTrans.forward * aimObjDis;
                 aimObj.transform.position = camTrans.position + camTrans.forward * aimObjDis;
             }
             Vector3 targetAim = targetPosition; //충돌위치 에임
